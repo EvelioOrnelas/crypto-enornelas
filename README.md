@@ -1,3 +1,4 @@
-# Below is a sreenshot of rpc_example.py getting blockcount and balance since I did not have a transaction to play with.
+# Below are sreenshots of my address and transaction complete as my blockchain is indexing and cant use my rpc example.
 
-![rpcexample](rpc_example.png)
+![Address](Address.png)
+![Transaction](Transaction.png)
