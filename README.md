@@ -1,5 +1,5 @@
 ## Example for getting transaction
 
-'''javascript
+```javascript
 ![Transaction](rpc_example.png)
-'''
+```
