@@ -1,5 +1,4 @@
-'''
-Screenshot of the transaction and used with rpc_example.py
-'''
-
+## Example for getting transaction
+'''javascript
 ![Transaction](rpc_example.png)
+'''
