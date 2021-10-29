@@ -8,7 +8,6 @@ conf="/home/evelioornelas/.bitcoin/bitcoin.conf"
 
 proxy = RawProxy(url,port,conf)
 
-info = proxy.getblockcount()
-balance = proxy.getbalance()
-print("Number of blocks: " + str(info))
-print("Balance: " + str(balance))
+txid = "569391ffeb1724210aab003cc3b40783c6fcd4166aba22b1b7a70d435210e48b"
+info = proxy.gettransaction(txid)
+print(info)
