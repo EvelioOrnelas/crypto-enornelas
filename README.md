@@ -1,4 +1,5 @@
-# Below are sreenshots of my address and transaction complete as my blockchain is indexing and cant use my rpc example.
+'''
+Screenshot of the transaction and used with rpc_example.py
+'''
 
-![Address](Address.png)
-![Transaction](Transaction.png)
+![Transaction](rpc_example.png)
