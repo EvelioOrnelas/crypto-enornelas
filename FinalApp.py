@@ -5,14 +5,16 @@ from coinbase.wallet.client import Client
 from PIL import Image
 import json
 
-sg.theme('DarkAmber')
 def make_win1():
     layout = [  #[sg.Menu(menu_def, tearoff=True, pad=(10, 10))],
-                [sg.Text('Config file: ', size=(15, 1)), sg.InputText(key='_FILEBROWSE_', enable_events=True), sg.FileBrowse(target='_FILEBROWSE_'), sg.Button('Get User Info', key='userInfo', enable_events=True)],
+                [sg.Text('Config file: ', size=(15, 1)), sg.InputText(key='_FILEBROWSE_', enable_events=True), sg.FileBrowse(target='_FILEBROWSE_'), sg.Button('Profile', key='userInfo', enable_events=True)],
                 [sg.Column([[sg.Text('Portfolio', font=("Verdana", 30))]], justification='center')],
+                [sg.Text('_'  * 90)],
                 [sg.Text('Your balance')],
                 [sg.Text('', key='AccountName', enable_events=True, font=('Verdana', 21))],
                 [sg.Text('', key='Bitcoin', enable_events=True), sg.Text('', key='balAmount', enable_events=True)],
+                [sg.Text('', key='BuyPrice', enable_events=True)],
+                [sg.Text('', key='SellPrice', enable_events=True)],
                 [sg.Output(size=(90, 1), background_color='black', text_color='white')]]
     return sg.Window('Coinbase GUI', layout, resizable=True, finalize=True)
 def make_win2():
@@ -69,6 +71,10 @@ while True:
             window.Element('AccountName').Update('$' + amount)
             window.Element('Bitcoin').Update('Bitcoin')
             window.Element('balAmount').Update(aname + ' ' + acurrency)
+            databuy = client.get_buy_price(currency_pair = 'BTC-USD')
+            datasell = client.get_sell_price(currency_pair = 'BTC-USD')
+            window.Element('BuyPrice').Update('Buy price: ' + databuy.amount)
+            window.Element('SellPrice').Update('Sell price: ' + datasell.amount)
         except:
             print("Invalid coinbase configuration file")
             time.sleep(3)
